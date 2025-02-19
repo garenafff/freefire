@@ -1,152 +1,67 @@
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garena Free Fire. O melhor jogo de sobrevivência Battle Royale para celular!</title>
+    <title>Upload de Foto</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        #mobile-menu {
-            transition: max-height 0.3s ease-out;
+        body {
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <header class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/">
-                <img src="https://dl.dir.freefiremobile.com/common/web_event/official2/dist/client/img/full_logo.969f536.png" alt="Free Fire Logo" class="h-8">
-            </a>
-            <nav class="space-x-4 hidden md:block">
-                <a href="#about" class="hover:text-yellow-500">Sobre</a>
-                <a href="#news" class="hover:text-yellow-500">Notícias</a>
-                <a href="#media" class="hover:text-yellow-500">Mídia</a>
-                <a href="#support" class="hover:text-yellow-500">Suporte</a>
-                <a href="https://ff.garena.com/universe/pt/" target="_blank" class="hover:text-yellow-500">FF Universe</a>
-            </nav>
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-2xl focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Upload de Foto</h1>
+        <form id="uploadForm" class="space-y-4">
+            <div>
+                <label for="fileInput" class="block text-sm font-medium text-gray-700">Escolha uma foto</label>
+                <input type="file" id="fileInput" name="file" accept="image/*" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
-        </div>
-        <nav id="mobile-menu" class="max-h-0 overflow-hidden md:hidden">
-            <a href="#about" class="block py-2 px-4 hover:bg-gray-700">Sobre</a>
-            <a href="#news" class="block py-2 px-4 hover:bg-gray-700">Notícias</a>
-            <a href="#media" class="block py-2 px-4 hover:bg-gray-700">Mídia</a>
-            <a href="#support" class="block py-2 px-4 hover:bg-gray-700">Suporte</a>
-            <a href="https://ff.garena.com/universe/pt/" target="_blank" class="block py-2 px-4 hover:bg-gray-700">FF Universe</a>
-        </nav>
-    </header>
-
-    <section id="home" class="bg-cover bg-center" style="background-image: url('https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/20251/b3932239008a1af93403622c02bfdf72.jpg');">
-        <div class="container mx-auto text-center py-20">
-            <h1 class="text-4xl font-bold mb-4">Garena Free Fire</h1>
-            <p class="text-xl mb-8">O melhor jogo de sobrevivência Battle Royale para celular!</p>
-            <a href="https://apps.apple.com/pt/app/garena-free-fire-5th-anniv/id1300146617" target="_blank" class="bg-yellow-500 text-black px-3 py-1 rounded">Baixar no App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth&hl=pt_GB&gl=BR" target="_blank" class="bg-yellow-500 text-black px-3 py-1 rounded ml-2">Baixar no Google Play</a>
-        </div>
-    </section>
-
-    <section id="news" class="bg-gray-800 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Notícias Recentes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <a href="escolha.html" class="bg-gray-700 p-4 rounded block hover:bg-gray-600">
-                    <img src="images/ANGELICAL.png" alt="Free Fire e NARUTO SHIPPUDEN se juntaram na maior parceria de anime já vista no battle royale!" class="w-full h-48 object-cover rounded mb-4">
-                    <h3 class="text-xl font-bold mb-2">Free Fire e NARUTO SHIPPUDEN se juntaram para entregar aos veteranos Calça Angelical totalmente Gratis!</h3>
-                    <p class="text-gray-400 mb-2">16/02/2025</p>
-                    <p class="text-gray-400">Notas da Atualização</p>
-                </a>
-                <a href="/pt/article/1426/" class="bg-gray-700 p-4 rounded block hover:bg-gray-600">
-                    <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202412/c474fc847bd8bb40fb14047afbbe5782.jpg" alt="Notas da Atualização" class="w-full h-48 object-cover rounded mb-4">
-                    <h3 class="text-xl font-bold mb-2">Notas da Atualização</h3>
-                    <p class="text-gray-400 mb-2">04/12/2024</p>
-                    <p class="text-gray-400">Notas da Atualização</p>
-                </a>
-                <a href="/pt/article/1394/" class="bg-gray-700 p-4 rounded block hover:bg-gray-600">
-                    <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/20249/d5624c0225f6fc3ad8ecea5a817c27da.jpg" alt="Notas da Atualização" class="w-full h-48 object-cover rounded mb-4">
-                    <h3 class="text-xl font-bold mb-2">Notas da Atualização</h3>
-                    <p class="text-gray-400 mb-2">05/09/2024</p>
-                    <p class="text-gray-400">Notas da Atualização</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="bg-gray-900 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Sobre</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-800 p-4 rounded">
-                    <img src="https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/65fef1213324415a00e170bef3a51e2b.jpg" alt="Aqui é Sua Batalha, Seu Estilo! Free Fire é um jogo de tiro em primeira pessoa gratuito e preparado para quase todos os celulares no mundo. Enfrente oponentes no Battle Royale, no Contra Squad e em outros modos de jogo emocionantes. Curta partidas de 10 minutos e sinta o sangue ferver até alcançar o BOOYAH!" class="w-full h-48 object-cover rounded mb-4">
-                    <p>Aqui é Sua Batalha, Seu Estilo! Free Fire é um jogo de tiro em primeira pessoa gratuito e preparado para quase todos os celulares no mundo. Enfrente oponentes no Battle Royale, no Contra Squad e em outros modos de jogo emocionantes. Curta partidas de 10 minutos e sinta o sangue ferver até alcançar o BOOYAH!</p>
-                </div>
-                <div class="bg-gray-800 p-4 rounded">
-                    <img src="https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/8a139e159b4f23e620bf3e86da2718a2.jpg" alt="O Free Fire MAX é a versão máxima do nosso clássico, com gráficos e efeitos visuais melhorados. Aproveite uma extensa variedade de modos de jogo com todos os jogadores de Free Fire graças a nossa tecnologia Firelink. Conheça a nova cara do combate com efeitos de tirar o fôlego e resolução em Alta Definição! Mire de longe ou embosque os oponentes, o objetivo é um só: sobreviver para ser o último sobrevivente!" class="w-full h-48 object-cover rounded mb-4">
-                    <p>O Free Fire MAX é a versão máxima do nosso clássico, com gráficos e efeitos visuais melhorados. Aproveite uma extensa variedade de modos de jogo com todos os jogadores de Free Fire graças a nossa tecnologia Firelink. Conheça a nova cara do combate com efeitos de tirar o fôlego e resolução em Alta Definição! Mire de longe ou embosque os oponentes, o objetivo é um só: sobreviver para ser o último sobrevivente!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="media" class="bg-gray-800 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Mídia</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-700 p-4 rounded">
-                    <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202212/4a4b27511122326c9659384c9efa1481.jpg" alt="Fábula de Futebol" class="w-full h-48 object-cover rounded mb-4">
-                    <h3 class="text-xl font-bold mb-2">Fábula de Futebol</h3>
-                    <p class="text-gray-400">Participe do Fábula de Futebol agora! Divirta-se com modos de jogo temáticos de futebol, conteúdos e itens especiais dentro do jogo! Aproveite para mostrar seu amor por futebol no Frifas!</p>
-                </div>
-                <div class="bg-gray-700 p-4 rounded">
-                    <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202212/1f286ba87e0fca8f678bed7310fe0970.jpg" alt="Fábula de Futebol" class="w-full h-48 object-cover rounded mb-4">
-                    <h3 class="text-xl font-bold mb-2">Fábula de Futebol</h3>
-                    <p class="text-gray-400">Participe do Fábula de Futebol agora! Divirta-se com modos de jogo temáticos de futebol, conteúdos e itens especiais dentro do jogo! Aproveite para mostrar seu amor por futebol no Frifas!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="support" class="bg-gray-900 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Suporte</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-800 p-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Política de Privacidade</h3>
-                    <p class="text-gray-400">Leia nossa política de privacidade para entender como protegemos suas informações.</p>
-                    <a href="https://content.garena.com/legal/pp/pp_pt.html" class="text-yellow-500">Saiba mais</a>
-                </div>
-                <div class="bg-gray-800 p-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Informação para Pais e Responsáveis</h3>
-                    <p class="text-gray-400">Informações importantes para pais e responsáveis sobre o uso do jogo.</p>
-                    <a href="/pt/faq/" class="text-yellow-500">Saiba mais</a>
-                </div>
-                <div class="bg-gray-800 p-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Termos de Serviço</h3>
-                    <p class="text-gray-400">Leia nossos termos de serviço para entender as regras e condições de uso.</p>
-                    <a href="http://content.garena.com/legal/tos/tos_pt.html" class="text-yellow-500">Saiba mais</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-800 py-4">
-        <div class="container mx-auto text-center">
-            <img src="https://dl.dir.freefiremobile.com/common/web_event/official2/dist/client/img/garena_logo.b28b2b6.png" alt="Garena" class="mx-auto mb-4">
-            <p class="text-gray-400">&copy; 2025 Garena. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <i class="fas fa-upload mr-2"></i>Upload
+            </button>
+        </form>
+        <div id="result" class="mt-6"></div>
+    </div>
 
     <script>
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('max-h-0')) {
-                menu.classList.remove('max-h-0');
-                menu.classList.add('max-h-screen');
-            } else {
-                menu.classList.remove('max-h-screen');
-                menu.classList.add('max-h-0');
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Por favor, selecione uma foto.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            try {
+                const response = await axios.post('https://api.uploadthing.com/upload', formData, {
+                    headers: {
+                        'Authorization': 'Bearer eyJhcGlLZXkiOiJza19saXZlX2MxNGY0MzE5YjgyNGFkMDgwNmI2ZTM1OTBhMDA2YmRkYjY5NGY2MjFmYzgzNzM4ODc1MzhmZDRlZGU1NTQ1NjIiLCJhcHBJZCI6IjZ1djdzcXhnMWgiLCJyZWdpb25zIjpbInNlYTEiXX0=',
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <div class="bg-green-100 text-green-700 p-4 rounded-md">
+                        <p>Upload realizado com sucesso!</p>
+                        <p><strong>URL da Imagem:</strong> <a href="${response.data.url}" target="_blank" class="text-indigo-600">${response.data.url}</a></p>
+                    </div>
+                `;
+            } catch (error) {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <div class="bg-red-100 text-red-700 p-4 rounded-md">
+                        <p>Erro ao realizar o upload. Tente novamente.</p>
+                    </div>
+                `;
             }
         });
     </script>
