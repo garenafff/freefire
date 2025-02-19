@@ -23,7 +23,7 @@
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
+
             const file = fileInput.files[0];
             if (!file) {
                 alert("Selecione um arquivo!");
@@ -37,20 +37,25 @@
                 const response = await fetch('https://api.uploadthing.com/upload', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer eyJhcGlLZXkiOiJza19saXZlX2MxNGY0MzE5YjgyNGFkMDgwNmI2ZTM1OTBhMDA2YmRkYjY5NGY2MjFmYzgzNzM4ODc1MzhmZDRlZGU1NTQ1NjIiLCJhcHBJZCI6IjZ1djdzcXhnMWgiLCJyZWdpb25zIjpbInNlYTEiXX0=',  // Substitua o token aqui
+                        'Authorization': 'Bearer eyJhcGlLZXkiOiJza19saXZlX2MxNGY0MzE5YjgyNGFkMDgwNmI2ZTM1OTBhMDA2YmRkYjY5NGY2MjFmYzgzNzM4ODc1MzhmZDRlZGU1NTQ1NjIiLCJhcHBJZCI6IjZ1djdzcXhnMWgiLCJyZWdpb25zIjpbInNlYTEiXX0='
                     },
                     body: formData
                 });
 
+                if (!response.ok) {
+                    throw new Error('Falha na solicitação');
+                }
+
                 const data = await response.json();
-                if (data.success) {
-                    resultDiv.innerHTML = `<p>Arquivo enviado com sucesso! Link: <a href="${data.url}" target="_blank">${data.url}</a></p>`;
+
+                if (data?.url) {
+                    resultDiv.innerHTML = `<p>Arquivo enviado com sucesso! <a href="${data.url}" target="_blank">Clique aqui para visualizar o arquivo</a></p>`;
                 } else {
-                    resultDiv.innerHTML = `<p>Erro ao enviar arquivo.</p>`;
+                    resultDiv.innerHTML = `<p>Erro ao enviar arquivo: ${data?.message || 'Não foi possível obter uma resposta válida.'}</p>`;
                 }
             } catch (error) {
                 console.error('Erro:', error);
-                resultDiv.innerHTML = `<p>Erro ao tentar enviar o arquivo.</p>`;
+                resultDiv.innerHTML = `<p>Erro ao tentar enviar o arquivo: ${error.message}</p>`;
             }
         });
     </script>
